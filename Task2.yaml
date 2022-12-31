@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/check@v3
+
+      - name: "login to docker hub"
+        run: docker login --username ${ {secrets.D_username } } --password ${ {secrets.Github } }
